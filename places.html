@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أماكن العُلا | دليل العُلا</title>
+<meta name="description" content="خريطة تفاعلية لأبرز معالم العُلا مع وصف كل مكان ومدة زيارته وتكلفته التقريبية.">
+<meta name="theme-color" content="#120d0b">
+<link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-places" data-page="places">
+<a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+<header class="site-header" id="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="12" r="6"/><path d="M3 37v-6h6v-6h6v-6h10v6h6v6h6v6z"/></svg>
+      <span class="brand-name">دليل العُلا</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+      <span class="sr-only">القائمة</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="التنقل الرئيسي">
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="places.html" aria-current="page">الأماكن</a></li>
+        <li><a href="planner.html">خطّط رحلتك</a></li>
+        <li><a href="tips.html">نصائح</a></li>
+        <li><a href="contact.html">تواصل</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero">
+  <img class="page-hero-img" src="media/banner-places.jpg" alt="جبل إثلب والممر الصخري المعروف بالسيق في الحِجر">
+  <div class="wrap page-hero-text">
+    <h1>أماكن العُلا</h1>
+    <p>سبعة معالم بين التاريخ والطبيعة. اختر مكانًا من الخريطة أو من القائمة لتقرأ عنه، واستمع لوصفه، وأضفه إلى رحلتك.</p>
+  </div>
+</section>
+
+<section class="band band-ink" aria-labelledby="explorer-title">
+  <div class="wrap">
+    <h2 class="sr-only" id="explorer-title">مستكشف الأماكن</h2>
+    <div class="toolbar">
+      <div class="chips" role="group" aria-label="تصفية حسب النوع">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">الكل</button>
+        <button class="chip" type="button" data-filter="history" aria-pressed="false">تاريخ</button>
+        <button class="chip" type="button" data-filter="nature" aria-pressed="false">طبيعة</button>
+        <button class="chip" type="button" data-filter="experience" aria-pressed="false">تجارب</button>
+      </div>
+      <label class="search">
+        <span class="sr-only">ابحث عن مكان</span>
+        <input type="search" id="place-search" placeholder="ابحث عن مكان" autocomplete="off">
+      </label>
+    </div>
+
+    <div class="explorer">
+      <figure class="map-card">
+        <svg id="map" viewBox="0 0 600 700" role="group" aria-labelledby="map-title">
+          <title id="map-title">خريطة توضيحية لمواقع معالم العُلا</title>
+        </svg>
+        <figcaption>المواقع تقريبية، والشمال إلى الأعلى.</figcaption>
+      </figure>
+      <article class="detail" id="detail" aria-live="polite">
+        <img class="detail-img" src="media/hegra.jpg" alt="واجهات مقابر قصر البنت المنحوتة في صخور الحِجر">
+        <div class="detail-body">
+          <span class="tag">تاريخ</span>
+          <h2>الحِجر</h2>
+          <p>مدينة نبطية تضم أكثر من 110 مقابر منحوتة في الصخر.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band band-sand steps-top" aria-labelledby="all-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="all-title">كل الأماكن</h2>
+      <p class="count" id="result-count">7 أماكن</p>
+    </div>
+    <ul class="place-grid" id="place-grid">
+      <li class="place-card" data-id="hegra" data-cat="history">
+        <button type="button" class="place-open" data-id="hegra">
+          <img src="media/hegra.jpg" alt="واجهات مقابر قصر البنت المنحوتة في صخور الحِجر" loading="lazy">
+          <span class="place-info">
+            <span class="tag">تاريخ</span>
+            <span class="place-name">الحِجر</span>
+            <span class="place-short">أول موقع سعودي في قائمة التراث العالمي.</span>
+            <span class="place-meta"><span>3 ساعات</span><span>من 95 ريالًا</span></span>
+          </span>
+        </button>
+      </li>
+      <li class="place-card" data-id="elephant" data-cat="nature">
+        <button type="button" class="place-open" data-id="elephant">
+          <img src="media/elephant-rock.jpg" alt="جبل الفيل، صخرة رملية على هيئة فيل وسط الرمال" loading="lazy">
+          <span class="place-info">
+            <span class="tag">طبيعة</span>
+            <span class="place-name">جبل الفيل</span>
+            <span class="place-short">صخرة طبيعية بارتفاع 52 مترًا على هيئة فيل.</span>
+            <span class="place-meta"><span>ساعة ونصف</span><span>دون تذكرة</span></span>
+          </span>
+        </button>
+      </li>
+      <li class="place-card" data-id="maraya" data-cat="experience">
+        <button type="button" class="place-open" data-id="maraya">
+          <img src="media/maraya.jpg" alt="مبنى مرايا المكسو بالمرايا تعكس واجهاته الصخور المحيطة" loading="lazy">
+          <span class="place-info">
+            <span class="tag">تجارب</span>
+            <span class="place-name">مرايا</span>
+            <span class="place-short">أكبر مبنى مكسو بالمرايا في العالم.</span>
+            <span class="place-meta"><span>ساعة</span><span>حسب الفعالية</span></span>
+          </span>
+        </button>
+      </li>
+      <li class="place-card" data-id="oldtown" data-cat="history">
+        <button type="button" class="place-open" data-id="oldtown">
+          <img src="media/old-town.jpg" alt="بيوت البلدة القديمة الطينية في العُلا كما تبدو من القلعة" loading="lazy">
+          <span class="place-info">
+            <span class="tag">تاريخ</span>
+            <span class="place-name">البلدة القديمة</span>
+            <span class="place-short">قرابة 900 بيت طيني وأزقة عمرها قرون.</span>
+            <span class="place-meta"><span>ساعتان</span><span>مجانًا</span></span>
+          </span>
+        </button>
+      </li>
+      <li class="place-card" data-id="dadan" data-cat="history">
+        <button type="button" class="place-open" data-id="dadan">
+          <img src="media/dadan.jpg" alt="مقابر منحوتة في الجرف الصخري الأحمر في موقع دادان" loading="lazy">
+          <span class="place-info">
+            <span class="tag">تاريخ</span>
+            <span class="place-name">دادان</span>
+            <span class="place-short">عاصمة مملكتي دادان ولحيان ومقابر الأسود.</span>
+            <span class="place-meta"><span>ساعتان</span><span>من 60 ريالًا</span></span>
+          </span>
+        </button>
+      </li>
+      <li class="place-card" data-id="ikmah" data-cat="history">
+        <button type="button" class="place-open" data-id="ikmah">
+          <img src="media/ikmah.jpg" alt="نقوش قديمة محفورة على صخور جبل عكمة" loading="lazy">
+          <span class="place-info">
+            <span class="tag">تاريخ</span>
+            <span class="place-name">جبل عكمة</span>
+            <span class="place-short">مكتبة مفتوحة من مئات النقوش القديمة.</span>
+            <span class="place-meta"><span>ساعة</span><span>ضمن جولة دادان</span></span>
+          </span>
+        </button>
+      </li>
+      <li class="place-card" data-id="harrat" data-cat="nature">
+        <button type="button" class="place-open" data-id="harrat">
+          <img src="media/harrat.jpg" alt="منظر واسع لوادي العُلا وجباله الصخرية" loading="lazy">
+          <span class="place-info">
+            <span class="tag">طبيعة</span>
+            <span class="place-name">مطل حرة عويرض</span>
+            <span class="place-short">إطلالة على الوادي من قمة بركانية.</span>
+            <span class="place-meta"><span>ساعة ونصف</span><span>دون تذكرة</span></span>
+          </span>
+        </button>
+      </li>
+    </ul>
+    <p class="empty" id="no-results" hidden>لا يوجد مكان بهذا الاسم. جرّب كلمة أخرى أو اختر «الكل».</p>
+    <p class="fine">الأسعار تقريبية ومأخوذة من موقع Experience AlUla، وقد تتغير حسب الموسم.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="12" r="6"/><path d="M3 37v-6h6v-6h6v-6h10v6h6v6h6v6z"/></svg>
+        <span class="brand-name">دليل العُلا</span>
+      </a>
+      <p>دليل سياحي تفاعلي لمحافظة العُلا، أُعدّ ضمن مشروع مقرر تطوير الويب <span dir="ltr">CS3810</span> في قسم الحوسبة بالليث، جامعة أم القرى.</p>
+    </div>
+    <nav class="footer-col" aria-label="صفحات الموقع">
+      <h2>الصفحات</h2>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="places.html">الأماكن</a></li>
+        <li><a href="planner.html">خطّط رحلتك</a></li>
+        <li><a href="tips.html">نصائح</a></li>
+        <li><a href="contact.html">تواصل</a></li>
+      </ul>
+    </nav>
+    <div class="footer-col">
+      <h2>مصادر رسمية</h2>
+      <ul>
+        <li><a href="https://www.experiencealula.com" target="_blank" rel="noopener">Experience AlUla</a></li>
+        <li><a href="https://whc.unesco.org/en/list/1293" target="_blank" rel="noopener">الحِجر في قائمة اليونسكو</a></li>
+        <li><a href="https://www.visitsaudi.com" target="_blank" rel="noopener">روح السعودية</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <details class="credits">
+      <summary>حقوق الصور</summary>
+      <p>جميع الصور من <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">ويكيميديا كومنز</a> برخص حرة، مع حفظ حق كل مصوّر.</p>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Qasr_al-Farid%2C_Hegra_%28Madain_Salih%29%2C_1st_cent._CE%2C_Saudi_Arabia_%2824%29.jpg" target="_blank" rel="noopener">قصر الفريد في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Qasr_al-Bint%2C_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia%2C_1st_cent._CE_%282%29.jpg" target="_blank" rel="noopener">قصر البنت في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Elephant_rock%2C_Al-%27Ula.jpg" target="_blank" rel="noopener">جبل الفيل</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Maraya_Concert_Hall_2024.png" target="_blank" rel="noopener">مرايا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Al-Ula_Old_Town_2021.jpg" target="_blank" rel="noopener">البلدة القديمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Ancient_site_of_Dadan_at_al-Ula%2C_1st_millenium_BCE%2C_Saudi_Arabia_11.jpg" target="_blank" rel="noopener">دادان</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Jabal_Ikmah%2C_ancient_Arabian_rock_art_and_inscription_site%3B_1st_millenium_BCE%3B_al-Ula%2C_Saudi_Arabia_%2833%29.jpg" target="_blank" rel="noopener">جبل عكمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula%2C_Saudi_Arabia_%285%29.jpg" target="_blank" rel="noopener">وادي العُلا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Jabal_Ithlib_and_the_Siq%2C_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia.jpg" target="_blank" rel="noopener">جبل إثلب في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula%2C_Saudi_Arabia_%283%29.jpg" target="_blank" rel="noopener">طبيعة العُلا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula_behind_Jabal_Ikmah_where_a_large_group_of_early_Islamic_inscriptions_are_to_be_seeen.jpg" target="_blank" rel="noopener">وادٍ قرب جبل عكمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Al-Ula_Old_Town_2021_Wikivoyage_banner.jpg" target="_blank" rel="noopener">بانوراما البلدة القديمة</a></li>
+      </ul>
+    </details>
+    <p class="copy">© 2026 دليل العُلا</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

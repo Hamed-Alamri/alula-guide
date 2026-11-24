@@ -1,0 +1,64 @@
+name: fetch-media
+
+on:
+  push:
+    paths:
+      - ".github/media-list.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download photos from Wikimedia Commons
+        run: |
+          python3 - <<'PY'
+          import json, os, time, urllib.parse, urllib.request
+          ua = "AlUlaGuide/1.0 (https://github.com/Hamed-Alamri/alula-guide; student web project)"
+          def get(url):
+              req = urllib.request.Request(url, headers={"User-Agent": ua})
+              for attempt in range(4):
+                  try:
+                      return urllib.request.urlopen(req, timeout=90).read()
+                  except Exception as e:
+                      print("retry", attempt, e)
+                      time.sleep(4 * (attempt + 1))
+              raise SystemExit("failed: " + url)
+          meta = {}
+          os.makedirs("media", exist_ok=True)
+          for line in open(".github/media-list.txt", encoding="utf-8"):
+              line = line.strip()
+              if not line:
+                  continue
+              out, width, name = line.split("|", 2)
+              title = name.replace(" ", "_")
+              data = get("https://commons.wikimedia.org/wiki/Special:FilePath/" + urllib.parse.quote(title) + "?width=" + width)
+              open(os.path.join("media", out), "wb").write(data)
+              api = ("https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo"
+                     "&iiprop=extmetadata|url|size&titles=" + urllib.parse.quote("File:" + title))
+              info = json.loads(get(api))
+              page = next(iter(info["query"]["pages"].values()))
+              ii = page.get("imageinfo", [{}])[0]
+              em = ii.get("extmetadata", {})
+              meta[name] = {
+                  "artist": em.get("Artist", {}).get("value", ""),
+                  "license": em.get("LicenseShortName", {}).get("value", ""),
+                  "credit": em.get("Credit", {}).get("value", ""),
+                  "width": ii.get("width"),
+                  "height": ii.get("height"),
+              }
+              print(out, len(data), meta[name]["license"])
+              time.sleep(1.5)
+          json.dump(meta, open(".github/media-meta.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          PY
+      - name: Commit photos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add media .github/media-meta.json
+          git commit -m "Add photos from Wikimedia Commons" || echo "nothing to commit"
+          git push

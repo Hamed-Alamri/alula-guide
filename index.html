@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل العُلا | واحة التاريخ في شمال غرب المملكة</title>
+<meta name="description" content="دليل سياحي تفاعلي لمحافظة العُلا: أبرز المعالم، ومخطط رحلات، وطقس مباشر.">
+<meta name="theme-color" content="#120d0b">
+<link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-home" data-page="home">
+<a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+<header class="site-header" id="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="12" r="6"/><path d="M3 37v-6h6v-6h6v-6h10v6h6v6h6v6z"/></svg>
+      <span class="brand-name">دليل العُلا</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+      <span class="sr-only">القائمة</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="التنقل الرئيسي">
+      <ul>
+        <li><a href="index.html" aria-current="page">الرئيسية</a></li>
+        <li><a href="places.html">الأماكن</a></li>
+        <li><a href="planner.html">خطّط رحلتك</a></li>
+        <li><a href="tips.html">نصائح</a></li>
+        <li><a href="contact.html">تواصل</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="hero" data-phase="sunset" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img class="hero-img" src="media/hero-hegra.jpg" alt="قصر الفريد، المقبرة النبطية المنفردة في الحِجر، وقت الغروب" fetchpriority="high">
+    <div class="hero-tint tint-dawn" aria-hidden="true"></div>
+    <div class="hero-tint tint-sunset" aria-hidden="true"></div>
+    <div class="hero-tint tint-night" aria-hidden="true"></div>
+    <canvas class="hero-stars" id="stars" aria-hidden="true"></canvas>
+    <div class="hero-shade" aria-hidden="true"></div>
+  </div>
+
+  <div class="wrap hero-layout">
+    <div class="hero-copy">
+      <p class="hero-place">محافظة العُلا، شمال غرب المملكة</p>
+      <h1 id="hero-title">العُلا</h1>
+      <p class="hero-lead">وادٍ من الحجر الرملي يحفظ مقابر <b>الأنباط</b> المنحوتة، وبلدةً من الطين عمرها قرون، وسماءً تتبدّل ألوانها مع كل ساعة.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="places.html">استكشف الأماكن</a>
+        <a class="btn btn-ghost" href="planner.html">خطّط رحلتك</a>
+      </div>
+    </div>
+
+    <aside class="sky-panel" aria-label="الوقت والطقس في العُلا الآن">
+      <div class="sky-head">
+        <div>
+          <span class="sky-label">الساعة في العُلا</span>
+          <strong class="sky-time" id="alula-time">--:--</strong>
+        </div>
+        <span class="sky-phase" id="phase-name">غروب</span>
+      </div>
+      <dl class="weather">
+        <div><dt>الحرارة</dt><dd id="w-temp">--</dd></div>
+        <div><dt>الحالة</dt><dd id="w-desc">جارٍ التحميل</dd></div>
+        <div><dt>الرياح</dt><dd id="w-wind">--</dd></div>
+        <div><dt>الشروق والغروب</dt><dd id="w-sun">--</dd></div>
+      </dl>
+      <div class="phase-switch" role="group" aria-label="غيّر لون السماء">
+        <button type="button" data-phase="auto" aria-pressed="true">الآن</button>
+        <button type="button" data-phase="dawn" aria-pressed="false">فجر</button>
+        <button type="button" data-phase="day" aria-pressed="false">نهار</button>
+        <button type="button" data-phase="sunset" aria-pressed="false">غروب</button>
+        <button type="button" data-phase="night" aria-pressed="false">ليل</button>
+      </div>
+      <p class="sky-note">ألوان الصورة تتبع وقت الشروق والغروب الحقيقي في العُلا اليوم.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="band band-sand steps-top" id="intro" aria-labelledby="intro-title">
+  <div class="wrap intro-grid">
+    <div class="intro-text">
+      <h2 id="intro-title">متحف مفتوح بحجم وادٍ كامل</h2>
+      <p>العُلا ليست معلمًا واحدًا تزوره ثم تمضي، بل وادٍ طويل في شمال غرب المملكة عبرته <b>قوافل البخور</b> قبل أكثر من ألفي عام، واستوطنته مملكتا <i>دادان ولحيان</i> ثم الأنباط، فبقيت آثارهم منحوتة في الصخر حتى اليوم.</p>
+      <p>جمعنا لك في هذا الدليل أبرز المعالم، ومخططًا تبني فيه رحلتك يومًا بيوم، ونصائح تحتاجها قبل أن تنطلق.</p>
+    </div>
+    <ul class="facts">
+      <li><strong data-count="110" data-suffix="+">110+</strong><span>مقبرة نبطية منحوتة في الحِجر</span></li>
+      <li><strong data-count="52">52</strong><span>مترًا ارتفاع جبل الفيل</span></li>
+      <li><strong data-count="9740">9,740</strong><span>مترًا مربعًا من المرايا تكسو مبنى مرايا</span></li>
+      <li><strong data-count="900">900</strong><span>بيت طيني تقريبًا في البلدة القديمة</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band-ember steps-top" aria-labelledby="timeline-title">
+  <div class="wrap">
+    <h2 id="timeline-title">من دادان إلى مرايا</h2>
+    <p class="section-lead">خمس محطات تختصر حكاية الوادي.</p>
+    <ol class="timeline">
+      <li>
+        <span class="tl-when">الألفية الأولى ق.م</span>
+        <h3>دادان ولحيان</h3>
+        <p>تقوم في الوادي مملكتا دادان ولحيان، وتترك نقوشها على صخور جبل عكمة.</p>
+      </li>
+      <li>
+        <span class="tl-when">القرن الأول ق.م إلى الأول م</span>
+        <h3>الأنباط في الحِجر</h3>
+        <p>ينحت الأنباط مقابرهم الضخمة في الحجر الرملي ويزيّنون واجهاتها.</p>
+      </li>
+      <li>
+        <span class="tl-when">القرن الثاني عشر</span>
+        <h3>البلدة القديمة</h3>
+        <p>تنشأ بلدة الطين على طريق الحج بين دمشق ومكة، ويسكنها الناس حتى الثمانينات.</p>
+      </li>
+      <li>
+        <span class="tl-when">2008</span>
+        <h3>أول موقع سعودي في اليونسكو</h3>
+        <p>تُدرج الحِجر في قائمة التراث العالمي، لتكون أول موقع في المملكة يدخل القائمة.</p>
+      </li>
+      <li>
+        <span class="tl-when">2019</span>
+        <h3>مرايا</h3>
+        <p>يكتمل بناء قاعة مرايا، ثم تدخل موسوعة غينيس بوصفها أكبر مبنى مكسو بالمرايا في العالم.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band-ink" aria-labelledby="featured-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="featured-title">ثلاثة أماكن لا تفوّتها</h2>
+      <a class="link-more" href="places.html">كل الأماكن</a>
+    </div>
+    <div class="feature-grid">
+      <a class="feature feature-lg" href="places.html#hegra">
+        <img src="media/hegra.jpg" alt="واجهات مقابر قصر البنت المنحوتة في صخور الحِجر" loading="lazy">
+        <div class="feature-text">
+          <span class="tag">تاريخ</span>
+          <h3>الحِجر</h3>
+          <p>أكثر من 110 مقابر نبطية، وأول موقع سعودي في قائمة التراث العالمي.</p>
+        </div>
+      </a>
+      <a class="feature" href="places.html#elephant">
+        <img src="media/elephant-rock.jpg" alt="جبل الفيل، صخرة رملية على هيئة فيل وسط الرمال" loading="lazy">
+        <div class="feature-text">
+          <span class="tag">طبيعة</span>
+          <h3>جبل الفيل</h3>
+          <p>صخرة بارتفاع 52 مترًا نحتتها الرياح على هيئة فيل.</p>
+        </div>
+      </a>
+      <a class="feature" href="places.html#oldtown">
+        <img src="media/old-town.jpg" alt="بيوت البلدة القديمة الطينية في العُلا كما تبدو من القلعة" loading="lazy">
+        <div class="feature-text">
+          <span class="tag">تاريخ</span>
+          <h3>البلدة القديمة</h3>
+          <p>قرابة 900 بيت من الطين وأزقة عمرها قرون.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="band band-deep" aria-labelledby="film-title">
+  <div class="wrap film-grid">
+    <div class="film-player" id="film">
+      <button class="film-facade" type="button" id="film-play" data-video="z8A0LpX7_yM">
+        <img src="media/banner-places.jpg" alt="جبل إثلب والسيق في الحِجر" loading="lazy">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span class="film-caption">شغّل الفيلم الوثائقي</span>
+      </button>
+    </div>
+    <div class="film-text">
+      <h2 id="film-title">شاهد العُلا واسمعها</h2>
+      <p>فيلم <i>مهندسو الجزيرة العربية القديمة</i> من إنتاج Discovery، يروي قصة الأنباط الذين نحتوا مدنهم في صخور العُلا.</p>
+      <p><a class="link-ext" href="https://www.youtube.com/watch?v=z8A0LpX7_yM" target="_blank" rel="noopener">افتح الفيلم في يوتيوب</a></p>
+      <div class="sound-card">
+        <button class="sound-btn" type="button" id="sound-toggle" aria-pressed="false">
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="sound-label">شغّل صوت الريح</span>
+        </button>
+        <p>صوت ريح هادئة يرافقك وأنت تتصفّح الدليل.</p>
+        <audio id="desert-audio" src="media/desert-wind.mp3" loop preload="none">متصفحك لا يدعم تشغيل الصوت.</audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-title">
+  <img class="cta-bg" src="media/banner-planner.jpg" alt="" loading="lazy">
+  <div class="wrap cta-inner">
+    <h2 id="cta-title">رتّب رحلتك يومًا بيوم</h2>
+    <p>اسحب الأماكن إلى أيام رحلتك، ونحسب لك الوقت والتكلفة التقريبية، ثم احفظ خطتك أو نزّلها صورة.</p>
+    <a class="btn btn-gold" href="planner.html">افتح المخطط</a>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="12" r="6"/><path d="M3 37v-6h6v-6h6v-6h10v6h6v6h6v6z"/></svg>
+        <span class="brand-name">دليل العُلا</span>
+      </a>
+      <p>دليل سياحي تفاعلي لمحافظة العُلا، أُعدّ ضمن مشروع مقرر تطوير الويب <span dir="ltr">CS3810</span> في قسم الحوسبة بالليث، جامعة أم القرى.</p>
+    </div>
+    <nav class="footer-col" aria-label="صفحات الموقع">
+      <h2>الصفحات</h2>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="places.html">الأماكن</a></li>
+        <li><a href="planner.html">خطّط رحلتك</a></li>
+        <li><a href="tips.html">نصائح</a></li>
+        <li><a href="contact.html">تواصل</a></li>
+      </ul>
+    </nav>
+    <div class="footer-col">
+      <h2>مصادر رسمية</h2>
+      <ul>
+        <li><a href="https://www.experiencealula.com" target="_blank" rel="noopener">Experience AlUla</a></li>
+        <li><a href="https://whc.unesco.org/en/list/1293" target="_blank" rel="noopener">الحِجر في قائمة اليونسكو</a></li>
+        <li><a href="https://www.visitsaudi.com" target="_blank" rel="noopener">روح السعودية</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <details class="credits">
+      <summary>حقوق الصور</summary>
+      <p>جميع الصور من <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">ويكيميديا كومنز</a> برخص حرة، مع حفظ حق كل مصوّر.</p>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Qasr_al-Farid%2C_Hegra_%28Madain_Salih%29%2C_1st_cent._CE%2C_Saudi_Arabia_%2824%29.jpg" target="_blank" rel="noopener">قصر الفريد في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Qasr_al-Bint%2C_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia%2C_1st_cent._CE_%282%29.jpg" target="_blank" rel="noopener">قصر البنت في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Elephant_rock%2C_Al-%27Ula.jpg" target="_blank" rel="noopener">جبل الفيل</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Maraya_Concert_Hall_2024.png" target="_blank" rel="noopener">مرايا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Al-Ula_Old_Town_2021.jpg" target="_blank" rel="noopener">البلدة القديمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Ancient_site_of_Dadan_at_al-Ula%2C_1st_millenium_BCE%2C_Saudi_Arabia_11.jpg" target="_blank" rel="noopener">دادان</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Jabal_Ikmah%2C_ancient_Arabian_rock_art_and_inscription_site%3B_1st_millenium_BCE%3B_al-Ula%2C_Saudi_Arabia_%2833%29.jpg" target="_blank" rel="noopener">جبل عكمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula%2C_Saudi_Arabia_%285%29.jpg" target="_blank" rel="noopener">وادي العُلا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Jabal_Ithlib_and_the_Siq%2C_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia.jpg" target="_blank" rel="noopener">جبل إثلب في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula%2C_Saudi_Arabia_%283%29.jpg" target="_blank" rel="noopener">طبيعة العُلا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula_behind_Jabal_Ikmah_where_a_large_group_of_early_Islamic_inscriptions_are_to_be_seeen.jpg" target="_blank" rel="noopener">وادٍ قرب جبل عكمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Al-Ula_Old_Town_2021_Wikivoyage_banner.jpg" target="_blank" rel="noopener">بانوراما البلدة القديمة</a></li>
+      </ul>
+    </details>
+    <p class="copy">© 2026 دليل العُلا</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

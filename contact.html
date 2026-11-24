@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تواصل معنا | دليل العُلا</title>
+<meta name="description" content="راسل فريق دليل العُلا واحسب المسافة من مدينتك.">
+<meta name="theme-color" content="#120d0b">
+<link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-contact" data-page="contact">
+<a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+<header class="site-header" id="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="12" r="6"/><path d="M3 37v-6h6v-6h6v-6h10v6h6v6h6v6z"/></svg>
+      <span class="brand-name">دليل العُلا</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+      <span class="sr-only">القائمة</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="التنقل الرئيسي">
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="places.html">الأماكن</a></li>
+        <li><a href="planner.html">خطّط رحلتك</a></li>
+        <li><a href="tips.html">نصائح</a></li>
+        <li><a href="contact.html" aria-current="page">تواصل</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero page-hero-short">
+  <img class="page-hero-img" src="media/banner-contact.jpg" alt="بانوراما لبيوت البلدة القديمة في العُلا">
+  <div class="wrap page-hero-text">
+    <h1>تواصل معنا</h1>
+    <p>سؤال عن مكان، أو اقتراح نضيفه إلى الدليل؟ اكتب لنا.</p>
+  </div>
+</section>
+
+<section class="band band-ink" aria-labelledby="form-title">
+  <div class="wrap contact-grid">
+    <div class="panel form-panel">
+      <h2 id="form-title">أرسل رسالة</h2>
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="c-name">الاسم</label>
+          <input id="c-name" name="name" type="text" autocomplete="name" aria-describedby="c-name-error">
+          <p class="error" id="c-name-error" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="c-email">البريد الإلكتروني</label>
+          <input id="c-email" name="email" type="email" autocomplete="email" dir="ltr" aria-describedby="c-email-error">
+          <p class="error" id="c-email-error" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="c-topic">الموضوع</label>
+          <select id="c-topic" name="topic">
+            <option>سؤال عن مكان</option>
+            <option>اقتراح مكان جديد</option>
+            <option>ملاحظة على الموقع</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="c-message">الرسالة</label>
+          <textarea id="c-message" name="message" rows="5" maxlength="500" aria-describedby="c-message-error c-count"></textarea>
+          <div class="field-foot">
+            <p class="error" id="c-message-error" aria-live="polite"></p>
+            <span class="counter" id="c-count">0 / 500</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gold">أرسل الرسالة</button>
+        <p class="fine">هذا الموقع مشروع جامعي دون خادم، لذلك تُحفظ رسائلك في متصفحك فقط.</p>
+      </form>
+      <div class="sent" id="sent-box" hidden>
+        <h3>رسائلك المحفوظة</h3>
+        <ul class="sent-list" id="sent-list"></ul>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="panel distance-card">
+        <h2>كم تبعد عن العُلا؟</h2>
+        <p>اختر مدينتك، أو استخدم موقعك الحالي.</p>
+        <div class="distance-controls">
+          <label class="sr-only" for="city">مدينتك</label>
+          <select id="city">
+            <option value="">اختر مدينة</option>
+            <option value="21.4858,39.1925">جدة</option>
+            <option value="21.3891,39.8579">مكة المكرمة</option>
+            <option value="24.4686,39.6142">المدينة المنورة</option>
+            <option value="20.1497,40.2700">الليث</option>
+            <option value="21.2703,40.4158">الطائف</option>
+            <option value="24.7136,46.6753">الرياض</option>
+            <option value="26.4207,50.0888">الدمام</option>
+            <option value="28.3835,36.5662">تبوك</option>
+            <option value="18.2164,42.5053">أبها</option>
+          </select>
+          <button type="button" class="btn btn-ghost" id="locate">استخدم موقعي</button>
+        </div>
+        <div class="distance-result" aria-live="polite">
+          <div><b id="d-km">--</b><span>كم بخط مستقيم</span></div>
+          <div><b id="d-drive">--</b><span>ساعات قيادة تقريبًا</span></div>
+        </div>
+        <p class="fine" id="d-note">تقدير القيادة مبني على المسافة المستقيمة وسرعة متوسطة، والطريق الفعلي أطول.</p>
+      </div>
+      <div class="panel map-embed">
+        <iframe src="https://www.google.com/maps?q=AlUla%20Old%20Town&amp;z=12&amp;output=embed" title="خريطة البلدة القديمة في العُلا" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="12" r="6"/><path d="M3 37v-6h6v-6h6v-6h10v6h6v6h6v6z"/></svg>
+        <span class="brand-name">دليل العُلا</span>
+      </a>
+      <p>دليل سياحي تفاعلي لمحافظة العُلا، أُعدّ ضمن مشروع مقرر تطوير الويب <span dir="ltr">CS3810</span> في قسم الحوسبة بالليث، جامعة أم القرى.</p>
+    </div>
+    <nav class="footer-col" aria-label="صفحات الموقع">
+      <h2>الصفحات</h2>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="places.html">الأماكن</a></li>
+        <li><a href="planner.html">خطّط رحلتك</a></li>
+        <li><a href="tips.html">نصائح</a></li>
+        <li><a href="contact.html">تواصل</a></li>
+      </ul>
+    </nav>
+    <div class="footer-col">
+      <h2>مصادر رسمية</h2>
+      <ul>
+        <li><a href="https://www.experiencealula.com" target="_blank" rel="noopener">Experience AlUla</a></li>
+        <li><a href="https://whc.unesco.org/en/list/1293" target="_blank" rel="noopener">الحِجر في قائمة اليونسكو</a></li>
+        <li><a href="https://www.visitsaudi.com" target="_blank" rel="noopener">روح السعودية</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <details class="credits">
+      <summary>حقوق الصور</summary>
+      <p>جميع الصور من <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">ويكيميديا كومنز</a> برخص حرة، مع حفظ حق كل مصوّر.</p>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Qasr_al-Farid%2C_Hegra_%28Madain_Salih%29%2C_1st_cent._CE%2C_Saudi_Arabia_%2824%29.jpg" target="_blank" rel="noopener">قصر الفريد في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Qasr_al-Bint%2C_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia%2C_1st_cent._CE_%282%29.jpg" target="_blank" rel="noopener">قصر البنت في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Elephant_rock%2C_Al-%27Ula.jpg" target="_blank" rel="noopener">جبل الفيل</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Maraya_Concert_Hall_2024.png" target="_blank" rel="noopener">مرايا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Al-Ula_Old_Town_2021.jpg" target="_blank" rel="noopener">البلدة القديمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Ancient_site_of_Dadan_at_al-Ula%2C_1st_millenium_BCE%2C_Saudi_Arabia_11.jpg" target="_blank" rel="noopener">دادان</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Jabal_Ikmah%2C_ancient_Arabian_rock_art_and_inscription_site%3B_1st_millenium_BCE%3B_al-Ula%2C_Saudi_Arabia_%2833%29.jpg" target="_blank" rel="noopener">جبل عكمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula%2C_Saudi_Arabia_%285%29.jpg" target="_blank" rel="noopener">وادي العُلا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Jabal_Ithlib_and_the_Siq%2C_Hegra_%28Madain_Salih%29%2C_Saudi_Arabia.jpg" target="_blank" rel="noopener">جبل إثلب في الحِجر</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula%2C_Saudi_Arabia_%283%29.jpg" target="_blank" rel="noopener">طبيعة العُلا</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula_behind_Jabal_Ikmah_where_a_large_group_of_early_Islamic_inscriptions_are_to_be_seeen.jpg" target="_blank" rel="noopener">وادٍ قرب جبل عكمة</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Al-Ula_Old_Town_2021_Wikivoyage_banner.jpg" target="_blank" rel="noopener">بانوراما البلدة القديمة</a></li>
+      </ul>
+    </details>
+    <p class="copy">© 2026 دليل العُلا</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
