@@ -27,7 +27,8 @@ jobs:
                   except Exception as e:
                       print("retry", attempt, e)
                       time.sleep(4 * (attempt + 1))
-              raise SystemExit("failed: " + url)
+              print("failed: " + url)
+              return None
           meta = {}
           os.makedirs("media", exist_ok=True)
           for line in open(".github/media-list.txt", encoding="utf-8"):
@@ -36,11 +37,16 @@ jobs:
                   continue
               out, width, name = line.split("|", 2)
               title = name.replace(" ", "_")
-              data = get("https://commons.wikimedia.org/wiki/Special:FilePath/" + urllib.parse.quote(title) + "?width=" + width)
+              data = get("https://commons.wikimedia.org/wiki/Special:FilePath/" + urllib.parse.quote(title) + ("?width=" + width if width != "0" else ""))
+              if not data:
+                  continue
               open(os.path.join("media", out), "wb").write(data)
               api = ("https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo"
                      "&iiprop=extmetadata|url|size&titles=" + urllib.parse.quote("File:" + title))
-              info = json.loads(get(api))
+              raw = get(api)
+              if not raw:
+                  continue
+              info = json.loads(raw)
               page = next(iter(info["query"]["pages"].values()))
               ii = page.get("imageinfo", [{}])[0]
               em = ii.get("extmetadata", {})
