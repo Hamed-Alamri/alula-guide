@@ -1,0 +1,69 @@
+name: scout
+
+on:
+  push:
+    branches: [scout]
+    paths:
+      - ".github/scout-cats.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download candidate thumbnails
+        run: |
+          python3 - <<'PY'
+          import json, os, re, time, urllib.parse, urllib.request
+          ua = "AlUlaGuide/1.0 (https://github.com/Hamed-Alamri/alula-guide; student web project)"
+          def get(url):
+              req = urllib.request.Request(url, headers={"User-Agent": ua})
+              for attempt in range(3):
+                  try:
+                      return urllib.request.urlopen(req, timeout=60).read()
+                  except Exception as e:
+                      print("retry", attempt, e)
+                      time.sleep(3 * (attempt + 1))
+              return None
+          base = "https://commons.wikimedia.org/w/api.php?format=json&"
+          index = {}
+          for cat in open(".github/scout-cats.txt", encoding="utf-8"):
+              cat = cat.strip()
+              if not cat:
+                  continue
+              slug = re.sub(r"[^a-z0-9]+", "-", cat.lower()).strip("-")
+              os.makedirs(f"scout/{slug}", exist_ok=True)
+              q = base + "action=query&generator=categorymembers&gcmtype=file&gcmlimit=40&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=420&gcmtitle=" + urllib.parse.quote("Category:" + cat)
+              raw = get(q)
+              if not raw:
+                  continue
+              pages = json.loads(raw).get("query", {}).get("pages", {})
+              items = []
+              for i, p in enumerate(sorted(pages.values(), key=lambda x: x["title"])):
+                  ii = p.get("imageinfo", [{}])[0]
+                  if not ii.get("thumburl") or ii.get("mime", "image/jpeg") not in ("image/jpeg", "image/png"):
+                      pass
+                  data = get(ii["thumburl"]) if ii.get("thumburl") else None
+                  if not data:
+                      continue
+                  fn = f"scout/{slug}/{i:02d}.jpg"
+                  open(fn, "wb").write(data)
+                  em = ii.get("extmetadata", {})
+                  items.append({"file": fn, "title": p["title"], "w": ii.get("width"), "h": ii.get("height"),
+                                "license": em.get("LicenseShortName", {}).get("value", ""),
+                                "artist": re.sub("<[^>]+>", "", em.get("Artist", {}).get("value", ""))})
+                  time.sleep(0.3)
+              index[cat] = items
+              print(cat, len(items))
+          json.dump(index, open("scout/index.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scout
+          git commit -m "scout" || echo nothing
+          git push
