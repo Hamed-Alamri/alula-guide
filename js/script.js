@@ -4,6 +4,7 @@
   const PLACES = [
     {
       id: "hegra",
+      where: "نحو 20 كم شمال العُلا",
       name: "الحِجر",
       cat: "history",
       lat: 26.7869,
@@ -20,6 +21,7 @@
     },
     {
       id: "elephant",
+      where: "20 دقيقة بالسيارة من البلدة القديمة",
       name: "جبل الفيل",
       cat: "nature",
       lat: 26.6892,
@@ -36,6 +38,7 @@
     },
     {
       id: "maraya",
+      where: "في وادي عشار",
       name: "مرايا",
       cat: "experience",
       lat: 26.59,
@@ -52,6 +55,7 @@
     },
     {
       id: "oldtown",
+      where: "في قلب العُلا",
       name: "البلدة القديمة",
       cat: "history",
       lat: 26.617,
@@ -68,6 +72,7 @@
     },
     {
       id: "dadan",
+      where: "شمال البلدة القديمة",
       name: "دادان",
       cat: "history",
       lat: 26.6445,
@@ -84,6 +89,7 @@
     },
     {
       id: "ikmah",
+      where: "بجوار دادان",
       name: "جبل عكمة",
       cat: "history",
       lat: 26.6595,
@@ -100,6 +106,7 @@
     },
     {
       id: "harrat",
+      where: "30 دقيقة بالسيارة من البلدة القديمة",
       name: "مطل حرة عويرض",
       cat: "nature",
       lat: 26.605,
@@ -118,7 +125,6 @@
 
   const CATS = { history: "تاريخ", nature: "طبيعة", experience: "تجارب" };
   const ALULA = { lat: 26.6086, lon: 37.9232 };
-  const OLD_TOWN = { lat: 26.617, lon: 37.917 };
   const byId = Object.fromEntries(PLACES.map((p) => [p.id, p]));
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -639,8 +645,6 @@
     };
 
     const render = (p) => {
-      const away = distanceKm(OLD_TOWN, p);
-      const awayText = away < 1 ? "داخل البلدة" : `نحو ${num(Math.round(away))} كم`;
       const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.lat},${p.lon}`)}`;
       detail.innerHTML = `
         <img class="detail-img" src="${p.img}" alt="${esc(p.alt)}">
@@ -652,7 +656,7 @@
             <li><span>مدة الزيارة</span><b>${hoursText(p.hours)}</b></li>
             <li><span>التكلفة</span><b>${esc(p.costLabel)}</b></li>
             <li><span>أفضل وقت</span><b>${esc(p.best)}</b></li>
-            <li><span>البعد عن البلدة القديمة</span><b>${awayText}</b></li>
+            <li><span>الموقع</span><b>${esc(p.where)}</b></li>
           </ul>
           <p class="note">${esc(p.note)}</p>
           <div class="detail-actions">
